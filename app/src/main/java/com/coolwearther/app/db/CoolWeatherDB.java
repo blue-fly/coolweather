@@ -129,13 +129,14 @@ public class CoolWeatherDB {
             values.put("county_name",county.getCountyName());
             values.put("county_code",county.getCountyCode());
             values.put("city_id",county.getCityId());
+            db.insert("County",null,values);
         }
     }
 
     /*
     从数据库读取某省下所有的城市信息
      */
-    public List<County> loadCounty(int cityId){
+    public List<County> loadCounties(int cityId){
         List<County> list=new ArrayList<County>();
         Cursor cursor=db.query("County",null,"city_id=?",new String[]{String.valueOf(cityId)},null,
                 null,
