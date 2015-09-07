@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by dellpc on 2015-08-30.
+ * Created by admin on 2015-08-30.
  */
 public class ChooseAreaActivity extends Activity{
 
@@ -64,12 +64,18 @@ public class ChooseAreaActivity extends Activity{
     private List<String> dataList=new ArrayList<String>();
     private CoolWeatherDB coolWeatherDB;
 
+    //是否从WeatherActivity中跳转过来
+    private boolean isFromWeatherActivity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //已经选择了城市而且不是从weatheractivity跳转过来，才会直接转到weatheractivity
+        isFromWeatherActivity=getIntent().getBooleanExtra("from_weather_activity",false);
+
         SharedPreferences prefs= PreferenceManager.getDefaultSharedPreferences(this);
-        if(prefs.getBoolean("city_selected",false)){
+        if(prefs.getBoolean("city_selected",false)&&!isFromWeatherActivity){
             Intent intent=new Intent(this,WeatherActivity.class);
             startActivity(intent);
             finish();
@@ -279,6 +285,10 @@ public class ChooseAreaActivity extends Activity{
         }else if(currentLevel==LEVEL_CITY){
             queryProvinces();
         }else{
+            if(isFromWeatherActivity){
+                Intent intent=new Intent(this,WeatherActivity.class);
+                startActivity(intent);
+            }
             finish();
         }
     }
