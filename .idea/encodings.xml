@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/coolwearther/app/activity/ChooseAreaActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/coolwearther/app/db/CoolWeatherDB.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/coolwearther/app/util/Utility.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

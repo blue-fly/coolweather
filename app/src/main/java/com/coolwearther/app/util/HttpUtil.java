@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * Created by dellpc on 2015-08-30.
+ * Created by admin on 2015-08-30.
  */
 public class HttpUtil {
 
